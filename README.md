@@ -1,6 +1,6 @@
 # XRPL Loyalty Rewards Platform
 
-A comprehensive decentralized loyalty rewards ecosystem with three different blockchain implementations.
+A comprehensive decentralized loyalty rewards ecosystem built on the XRP Ledger with two implementation approaches.
 
 ## � Documentation
 
@@ -11,7 +11,7 @@ A comprehensive decentralized loyalty rewards ecosystem with three different blo
 - **[Testing Guide](./TESTING.md)** - Comprehensive testing strategies  
 - **[Deployment Guide](./DEPLOYMENT.md)** - Production deployment instructions
 
-## �📁 Projects
+## 📁 Projects
 
 ### 1. [XRPL-Loyalty-Native](./XRPL-Loyalty-Native) - JavaScript Version
 XRPL implementation using native token features with JavaScript/TypeScript.
@@ -22,7 +22,7 @@ XRPL implementation using native token features with JavaScript/TypeScript.
 
 [View Documentation →](./XRPL-Loyalty-Native/README.md)
 
-### 3. [XRPL-Loyalty-Hooks](./XRPL-Loyalty-Hooks) - Smart Contracts Version
+### 2. [XRPL-Loyalty-Hooks](./XRPL-Loyalty-Hooks) - Smart Contracts Version
 Advanced XRPL implementation using Hooks (C++ smart contracts).
 
 **Technology**: XRPL Hooks, C++, WebAssembly, Next.js, React  
@@ -31,24 +31,22 @@ Advanced XRPL implementation using Hooks (C++ smart contracts).
 
 [View Documentation →](./XRPL-Loyalty-Hooks/README.md)
 
-## 2 Feature Comparison
+## 🎯 Feature Comparison
 
-| Feature | Canton Network | XRPL Native | XRPL Hooks |
-|---------|----------------|-------------|------------|
-| **Smart Contracts** | DAML | None (Native) | C++ Hooks |
-| **Transaction Speed** | Fast | Very Fast | Very Fast |
-| **Privacy** | High | Medium | Medium |
-| **Complexity** | Medium | Low | High |
-| **Gas Fees** | Low | Very Low | Very Low |
-| **Mainnet Ready** | ✅ Yes | ✅ Yes | ⚠️ Testnet Only |
-| **Programming Language** | DAML | JavaScript/TypeScript | C++ |
-| **AutomatiXRPL Native | XRPL Hooks |
+| Feature | XRPL Native | XRPL Hooks |
 |---------|-------------|------------|
 | **Smart Contracts** | None (Native) | C++ Hooks |
 | **Transaction Speed** | Very Fast | Very Fast |
 | **Privacy** | Medium | Medium |
 | **Complexity** | Low | High |
-| **XRPL Native (JavaScript)
+| **Gas Fees** | Very Low | Very Low |
+| **Mainnet Ready** | ✅ Yes | ⚠️ Testnet Only |
+| **Programming Language** | JavaScript/TypeScript | C++ |
+| **Automation** | Client-side | On-chain Hooks |
+
+## 🚀 Quick Start
+
+### XRPL Native (JavaScript)
 ```bash
 cd XRPL-Loyalty-Native
 npm run install:all
@@ -59,34 +57,31 @@ npm run dev
 ```bash
 cd XRPL-Loyalty-Hooks
 npm run install:all
-# Compile hooks first
-cd hooks && hook-build loyalty_issuer.c
-cd .. && npm run dev
-```
-
-## 🏗️ Common Architecture
-
 npm run compile:hooks  # Compile C hooks to WASM
 npm run dev
 ```
 
-## 🏗️ Common Architecture
+## 🏗️ Architecture
 
-BothNative**: Direct XRPL transactions with xrpl.js
+Both implementations share a common architecture:
+- **Business Dashboard**: Next.js 14 app for merchants
+- **Customer App**: React PWA for end users
+- **Core Features**: Token issuance, rewards management, QR scanning
+
+The main difference is the blockchain layer:
+- **XRPL Native**: Direct XRPL transactions with xrpl.js
 - **XRPL Hooks**: Smart contract automation with C++ Hooks
 
 ## 📊 Use Cases
 
 ### Retail Loyalty Programs
-All versions support point-based rewards for purchases.
-Coffee Shop Chains
+Point-based rewards for purchases with instant token issuance.
+
+### Coffee Shop Chains
 Issue loyalty tokens for each purchase, redeem for free items.
 
 ### Multi-Merchant Networks
 Create shared loyalty ecosystems across multiple businesses.
-
-### Enterprise Programs
-Canton version offers privacy and permissioned deployment.
 
 ## 🛠️ Development
 
@@ -263,19 +258,7 @@ npm run dev
 npm run build
 ```
 
-## 📖 Documentation
-
-- [Canton LoyaltyProgram Docs](./LoyaltyProgram/README.md)
-- [XRPL Native Docs](./XRPL-Loyalty-Native/README.md)
-- [XRPL Hooks Docs](./XRPL-Loyalty-Hooks/README.md)
-- [Getting Started Guide](./LoyaltyProgram/GETTING_STARTED.md)
-- [Canton Integration Guide](./LoyaltyProgram/CANTON_INTEGRATION.md)
-
-## 🔗 External Resources
-
-### Canton Network
-- [Canton Docs](https://docs.canton.network/)
-- [DAML Documentation](https://docs.daml.com/)
+## � External Resources
 
 ### XRP Ledger
 - [XRPL Docs](https://xrpl.org/)
@@ -291,24 +274,24 @@ Contributions welcome! Each project has its own development workflow.
 
 MIT License - See individual project directories for details.
 
-## 🌟 Roadmap
+## 🌟 Project Roadmap
 
-- [x] Canton Network implementation
 - [x] XRPL Native version design
 - [x] XRPL Hooks version design
-- [ ] Complete XRPL Native implementation
-- [ ] Complete XRPL Hooks implementation
-- [ ] Cross-chain bridge between versions
+- [x] Basic token issuance
+- [x] Wallet management
+- [ ] Complete reward catalog system
 - [ ] Mobile native apps (iOS/Android)
-- [ ] Analytics dashboard
+- [ ] Advanced analytics dashboard
 - [ ] Multi-currency support
+- [ ] NFT rewards integration
 
 ## 📞 Support
 
-- **Issues**: GitHub Issues for each project
-- **Discussions**: GitHub Discussions
-- **Twitter**: [@kanaiyathacker1980](https://twitter.com/kanaiyathacker1980)
+- **Issues**: GitHub Issues for bug reports and features
+- **Discussions**: GitHub Discussions for questions
+- **XRPL Discord**: https://discord.gg/xrpl
 
 ---
 
-**Choose Your Blockchain, Build Amazing Loyalty Programs** 🚀
+**Build Amazing Loyalty Programs on XRPL** 🚀
