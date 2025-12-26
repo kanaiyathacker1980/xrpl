@@ -1,0 +1,19 @@
+{
+  "name": "xrpl-loyalty-hooks",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "business-dashboard",
+    "customer-app",
+    "hooks-compiler"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm install --workspace=business-dashboard && npm install --workspace=customer-app && npm install --workspace=hooks-compiler",
+    "dev": "concurrently \"npm run dev --workspace=business-dashboard\" \"npm run dev --workspace=customer-app\" \"npm run dev --workspace=hooks-compiler\"",
+    "build": "npm run build --workspace=business-dashboard && npm run build --workspace=customer-app",
+    "compile:hooks": "npm run compile --workspace=hooks-compiler"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -2,18 +2,18 @@
 
 A comprehensive decentralized loyalty rewards ecosystem with three different blockchain implementations.
 
-## 📁 Projects
+## � Documentation
 
-### 1. [LoyaltyProgram](./LoyaltyProgram) - Canton Network Version
-The original implementation using Canton Network and DAML smart contracts.
+- **[Quick Start Guide](./QUICKSTART.md)** - Get up and running in 5 minutes
+- **[Feature Comparison](./COMPARISON.md)** - Native vs Hooks detailed comparison
+- **[FAQ](./FAQ.md)** - Frequently asked questions
+- **[API Documentation](./API.md)** - XRPL integration patterns
+- **[Testing Guide](./TESTING.md)** - Comprehensive testing strategies  
+- **[Deployment Guide](./DEPLOYMENT.md)** - Production deployment instructions
 
-**Technology**: Canton Network, DAML, Next.js, React  
-**Status**: ✅ Production Ready  
-**Best For**: Enterprise deployments requiring privacy and permissioned blockchain
+## �📁 Projects
 
-[View Documentation →](./LoyaltyProgram/README.md)
-
-### 2. [XRPL-Loyalty-Native](./XRPL-Loyalty-Native) - JavaScript Version
+### 1. [XRPL-Loyalty-Native](./XRPL-Loyalty-Native) - JavaScript Version
 XRPL implementation using native token features with JavaScript/TypeScript.
 
 **Technology**: XRPL, xrpl.js, TrustLines, Next.js, React  
@@ -31,7 +31,7 @@ Advanced XRPL implementation using Hooks (C++ smart contracts).
 
 [View Documentation →](./XRPL-Loyalty-Hooks/README.md)
 
-## 🎯 Feature Comparison
+## 2 Feature Comparison
 
 | Feature | Canton Network | XRPL Native | XRPL Hooks |
 |---------|----------------|-------------|------------|
@@ -42,20 +42,13 @@ Advanced XRPL implementation using Hooks (C++ smart contracts).
 | **Gas Fees** | Low | Very Low | Very Low |
 | **Mainnet Ready** | ✅ Yes | ✅ Yes | ⚠️ Testnet Only |
 | **Programming Language** | DAML | JavaScript/TypeScript | C++ |
-| **Automation** | Via Canton | Manual | On-Chain Hooks |
-
-## 🚀 Quick Start
-
-Choose the version that best fits your needs:
-
-### Canton Network (Production Ready)
-```bash
-cd LoyaltyProgram
-npm run install:all
-npm run dev
-```
-
-### XRPL Native (JavaScript)
+| **AutomatiXRPL Native | XRPL Hooks |
+|---------|-------------|------------|
+| **Smart Contracts** | None (Native) | C++ Hooks |
+| **Transaction Speed** | Very Fast | Very Fast |
+| **Privacy** | Medium | Medium |
+| **Complexity** | Low | High |
+| **XRPL Native (JavaScript)
 ```bash
 cd XRPL-Loyalty-Native
 npm run install:all
@@ -73,22 +66,20 @@ cd .. && npm run dev
 
 ## 🏗️ Common Architecture
 
-All three versions share:
-- **Business Dashboard**: Next.js 14 app for merchants
-- **Customer App**: React PWA for end users
-- **Core Features**: Token issuance, rewards management, QR scanning
+npm run compile:hooks  # Compile C hooks to WASM
+npm run dev
+```
 
-The main difference is the blockchain layer:
-- **Canton**: DAML contracts on Canton Network
-- **XRPL Native**: Direct XRPL transactions with xrpl.js
+## 🏗️ Common Architecture
+
+BothNative**: Direct XRPL transactions with xrpl.js
 - **XRPL Hooks**: Smart contract automation with C++ Hooks
 
 ## 📊 Use Cases
 
 ### Retail Loyalty Programs
 All versions support point-based rewards for purchases.
-
-### Coffee Shop Chains
+Coffee Shop Chains
 Issue loyalty tokens for each purchase, redeem for free items.
 
 ### Multi-Merchant Networks
@@ -98,6 +89,165 @@ Create shared loyalty ecosystems across multiple businesses.
 Canton version offers privacy and permissioned deployment.
 
 ## 🛠️ Development
+
+### Quick Start
+
+**Automated Setup:**
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+**Manual Setup:**
+
+Native Version:
+```bash
+cd XRPL-Loyalty-Native
+npm run install:all
+npm run dev
+```
+
+Hooks Version:
+```bash
+cd XRPL-Loyalty-Hooks
+npm run install:all
+npm run compile:hooks  # Compile C hooks to WASM
+npm run dev
+```
+
+### Project Structure
+
+```
+XRPL-Loyalty-Native/
+├── business-dashboard/  # Next.js business dashboard
+├── customer-app/        # React PWA for customers
+└── package.json
+
+XRPL-Loyalty-Hooks/
+├── business-dashboard/  # Next.js with hooks integration
+├── customer-app/        # React PWA with hooks support
+├── hooks/               # C smart contracts
+│   ├── loyalty_issuer.c
+│   └── reward_validator.c
+├── hooks-compiler/      # WASM compilation service
+└── package.json
+```
+
+## 📚 Documentation
+
+- **[API Documentation](./API.md)** - XRPL integration patterns and API reference
+- **[Testing Guide](./TESTING.md)** - Comprehensive testing strategies
+- **[Deployment Guide](./DEPLOYMENT.md)** - Production deployment instructions
+- **[Hooks Guide](./XRPL-Loyalty-Hooks/HOOKS_GUIDE.md)** - Detailed hooks implementation
+
+## 🔐 Security
+
+### Development
+- Use XRPL Testnet only
+- Test wallets can be stored locally
+- Never commit seeds to version control
+
+### Production
+- Use XRPL Mainnet
+- Store seeds in secure vault (AWS Secrets Manager, etc.)
+- Implement proper authentication
+- Use hardware wallets for business accounts
+- Enable multi-signature for high-value operations
+
+## 🧪 Testing
+
+```bash
+# Get testnet XRP
+# Visit: https://xrpl.org/xrp-testnet-faucet.html
+
+# Run tests (when implemented)
+npm test
+
+# E2E tests
+npm run test:e2e
+```
+
+## 📦 Building
+
+Native Version:
+```bash
+cd XRPL-Loyalty-Native
+npm run build
+```
+
+Hooks Version:
+```bash
+cd XRPL-Loyalty-Hooks
+npm run compile:hooks  # Compile hooks first
+npm run build
+```
+
+## 🚀 Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+
+**Quick Deploy to Vercel:**
+```bash
+cd XRPL-Loyalty-Native/business-dashboard
+vercel --prod
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly on testnet
+5. Submit a pull request
+
+## 📝 License
+
+MIT License - see LICENSE file for details
+
+## 🙏 Acknowledgments
+
+- **XRPL Labs** - For XRPL Hooks technology
+- **Ripple** - For the XRP Ledger
+- **XRPL Community** - For documentation and support
+
+## 📞 Support
+
+- **XRPL Docs**: https://xrpl.org
+- **XRPL Discord**: https://discord.gg/xrpl  
+- **Hooks Documentation**: https://hooks-docs.xrpl.org
+- **GitHub Issues**: For bug reports and features
+
+## 🗺️ Roadmap
+
+### Native Version
+- [x] Basic token issuance
+- [x] Customer wallet management
+- [x] QR code scanning
+- [ ] Reward catalog system
+- [ ] Analytics dashboard
+- [ ] Mobile app (React Native)
+- [ ] Multi-currency support
+
+### Hooks Version  
+- [x] Loyalty issuer hook
+- [x] Reward validator hook
+- [x] Hook compiler service
+- [ ] Advanced tier system
+- [ ] Automated rewards
+- [ ] Governance hooks
+- [ ] Hook monitoring dashboard
+
+### Both Versions
+- [ ] Database integration
+- [ ] Advanced analytics
+- [ ] Email/SMS notifications
+- [ ] Multi-business federation
+- [ ] NFT rewards
+- [ ] DeFi integrations
+
+## ⭐ Star History
+
+If you find this project useful, please consider giving it a star!
 
 Each project has its own dependencies and setup:
 

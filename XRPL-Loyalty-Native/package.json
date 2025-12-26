@@ -1,0 +1,25 @@
+{
+  "name": "xrpl-loyalty-native",
+  "version": "1.0.0",
+  "description": "XRPL Loyalty Rewards Platform using Native Tokens",
+  "private": true,
+  "workspaces": [
+    "business-dashboard",
+    "customer-app"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm install --workspace=business-dashboard && npm install --workspace=customer-app",
+    "dev": "concurrently \"npm run dev --workspace=business-dashboard\" \"npm run dev --workspace=customer-app\"",
+    "dev:business": "npm run dev --workspace=business-dashboard",
+    "dev:customer": "npm run dev --workspace=customer-app",
+    "build": "npm run build --workspace=business-dashboard && npm run build --workspace=customer-app",
+    "build:business": "npm run build --workspace=business-dashboard",
+    "build:customer": "npm run build --workspace=customer-app"
+  },
+  "keywords": ["xrpl", "loyalty", "rewards", "blockchain"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
